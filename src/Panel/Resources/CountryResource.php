@@ -33,12 +33,12 @@ class CountryResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return __('location::location.country.navigation');
+        return __('location::country.navigation');
     }
 
     public static function getLabel(): ?string
     {
-        return __('location::location.country.label');
+        return __('location::country.label');
     }
 
     public static function canAccess(): bool
@@ -65,28 +65,28 @@ class CountryResource extends Resource
             ->defaultSort('name')
             ->columns([
                 ToggleColumn::make('is_active')
-                    ->label(__('location::location.country.is_active'))
+                    ->label(__('location::country.is_active'))
                     ->visible(user_can(CountryPermission::Edit)),
 
                 TextColumn::make('name')
-                    ->label(__('location::location.country.name'))
+                    ->label(__('location::country.name'))
                     ->searchable()
                     ->sortable(),
 
                 TextColumn::make('alpha2')
-                    ->label(__('location::location.country.alpha2')),
+                    ->label(__('location::country.alpha2')),
 
                 TextColumn::make('alpha3')
-                    ->label(__('location::location.country.alpha2')),
+                    ->label(__('location::country.alpha2')),
 
                 TextColumn::make('un_code')
-                    ->label(__('location::location.country.un_code')),
+                    ->label(__('location::country.un_code')),
 
                 TextColumn::makeSinceDate('updated_at', __('ui.updated_at')),
             ])
             ->filters([
                 TernaryFilter::make('is_active')
-                    ->label(__('location::location.country.is_visible')),
+                    ->label(__('location::country.is_visible')),
             ])
             ->recordActions([
                 EditAction::make()

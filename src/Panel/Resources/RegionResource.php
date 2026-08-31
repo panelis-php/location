@@ -34,12 +34,12 @@ class RegionResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return __('location::location.region.navigation');
+        return __('location::region.navigation');
     }
 
     public static function getLabel(): ?string
     {
-        return __('location::location.region.label');
+        return __('location::region.label');
     }
 
     public static function canAccess(): bool
@@ -64,16 +64,16 @@ class RegionResource extends Resource
             ->defaultSort('name')
             ->columns([
                 ToggleColumn::make('is_active')
-                    ->label(__('location::location.region.is_active'))
+                    ->label(__('location::region.is_active'))
                     ->visible(user_can(RegionPermission::Edit)),
 
                 TextColumn::make('name')
-                    ->label(__('location::location.region.name'))
+                    ->label(__('location::region.name'))
                     ->sortable()
                     ->searchable(),
 
                 TextColumn::make('country.name')
-                    ->label(__('location::location.country.label'))
+                    ->label(__('location::country.label'))
                     ->sortable()
                     ->searchable(),
 
@@ -81,10 +81,10 @@ class RegionResource extends Resource
             ])
             ->filters([
                 TernaryFilter::make('is_active')
-                    ->label(__('location::location.region.is_active')),
+                    ->label(__('location::region.is_active')),
 
                 SelectFilter::make('country_id')
-                    ->label(__('location::location.country.label'))
+                    ->label(__('location::country.label'))
                     ->relationship('country', 'name')
                     ->multiple()
                     ->searchable()
