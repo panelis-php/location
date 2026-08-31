@@ -37,12 +37,12 @@ class DistrictResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return __('location::location.district.navigation');
+        return __('location::city.navigation');
     }
 
     public static function getLabel(): ?string
     {
-        return __('location::location.district.label');
+        return __('location::city.label');
     }
 
     public static function canAccess(): bool
@@ -67,38 +67,38 @@ class DistrictResource extends Resource
             ->defaultSort('name')
             ->columns([
                 ToggleColumn::make('is_active')
-                    ->label(__('location::location.district.is_active'))
+                    ->label(__('location::city.is_active'))
                     ->visible(user_can(DistrictPermission::Edit)),
 
                 TextColumn::make('name')
-                    ->label(__('location::location.district.name'))
+                    ->label(__('location::city.name'))
                     ->sortable()
                     ->searchable(),
 
                 TextColumn::make('region.name')
-                    ->label(__('location::location.region.label'))
+                    ->label(__('location::region.label'))
                     ->sortable()
                     ->searchable(),
 
                 TextColumn::make('region.country.name')
-                    ->label(__('location::location.country.label'))
+                    ->label(__('location::country.label'))
                     ->sortable(),
 
                 TextColumn::makeSinceDate('updated_at', __('ui.updated_at')),
             ])
             ->filters([
                 TernaryFilter::make('is_active')
-                    ->label(__('location::location.district.is_active')),
+                    ->label(__('location::city.is_active')),
 
                 SelectFilter::make('country_id')
-                    ->label(__('location::location.country.label'))
+                    ->label(__('location::country.label'))
                     ->relationship('region.country', 'name')
                     ->searchable()
                     ->multiple()
                     ->preload(),
 
                 SelectFilter::make('region_id')
-                    ->label(__('location::location.region.label'))
+                    ->label(__('location::region.label'))
                     ->relationship('region', 'name')
                     ->searchable()
                     ->multiple()

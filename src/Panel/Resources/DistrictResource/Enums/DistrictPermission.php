@@ -19,6 +19,9 @@ enum DistrictPermission: string implements HasLabel
 
     public function getLabel(): string
     {
-        return __(sprintf('location::permission.name_%s', Str::snake($this->value)));
+        return __(sprintf(
+            'location::permission.name_%s',
+            str(Str::snake($this->value))->replace('district', 'city')->toString(),
+        ));
     }
 }

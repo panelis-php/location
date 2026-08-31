@@ -13,7 +13,7 @@ class RegionForm
     {
         return [
             Select::make('country_id')
-                ->label(__('location::location.country.label'))
+                ->label(__('location::country.label'))
                 ->relationship('country', 'name')
                 ->createOptionForm(user_can(CountryPermission::Add) ? FormsCountryForm::schema() : null)
                 ->searchable()
@@ -21,7 +21,7 @@ class RegionForm
                 ->required(),
 
             TextInput::make('name')
-                ->label(__('location::location.region.name'))
+                ->label(__('location::region.name'))
                 ->required()
                 ->minLength(3)
                 ->maxLength(150),
