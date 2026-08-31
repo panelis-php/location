@@ -2,7 +2,10 @@
 
 namespace Panelis\Location\Panel\Resources\CountryResource\Enums;
 
-enum CountryPermission: string
+use Filament\Support\Contracts\HasLabel;
+use Illuminate\Support\Str;
+
+enum CountryPermission: string implements HasLabel
 {
     case Browse = 'BrowseCountryLocation';
 
@@ -13,4 +16,9 @@ enum CountryPermission: string
     case Add = 'AddCountryLocation';
 
     case Delete = 'DeleteCountryLocation';
+
+    public function getLabel(): string
+    {
+        return __(sprintf('location::permission.name_%s', Str::snake($this->value)));
+    }
 }

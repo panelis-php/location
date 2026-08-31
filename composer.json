@@ -4,6 +4,12 @@
   "keywords": [
     "panelis"
   ],
+  "authors": [
+    {
+      "name": "Yugo",
+      "email": "dedy.yugo.purwanto@gmail.com"
+    }
+  ],
   "type": "library",
   "license": "MIT",
   "require": {
@@ -35,7 +41,12 @@
     "panelis": {
       "plugins": [
         "Panelis\\Location\\Plugins\\LocationPlugin"
-      ]
+      ],
+      "permissions": {
+        "country": "Panelis\\Location\\Panel\\Resources\\CountryResource\\Enums\\CountryPermission",
+        "district": "Panelis\\Location\\Panel\\Resources\\DistrictResource\\Enums\\DistrictPermission",
+        "region": "Panelis\\Location\\Panel\\Resources\\RegionResource\\Enums\\RegionPermission"
+      }
     }
   }
 }

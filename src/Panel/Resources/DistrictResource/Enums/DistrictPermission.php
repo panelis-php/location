@@ -2,7 +2,10 @@
 
 namespace Panelis\Location\Panel\Resources\DistrictResource\Enums;
 
-enum DistrictPermission: string
+use Filament\Support\Contracts\HasLabel;
+use Illuminate\Support\Str;
+
+enum DistrictPermission: string implements HasLabel
 {
     case Browse = 'BrowseDistrictLocation';
 
@@ -13,4 +16,9 @@ enum DistrictPermission: string
     case Add = 'AddDistrictLocation';
 
     case Delete = 'DeleteDistrictLocation';
+
+    public function getLabel(): string
+    {
+        return __(sprintf('location::permission.name_%s', Str::snake($this->value)));
+    }
 }
